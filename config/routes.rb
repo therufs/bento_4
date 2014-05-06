@@ -1,10 +1,14 @@
 Bento::Application.routes.draw do
+  resources :sessions, only: [:new, :create, :destroy] # don't need show or edit 
   resources :users   # TODO add some more resources!  FOR FUN & PROFIT
   root 'static_pages#home'
   match '/help', to: 'static_pages#help', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'
-  match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/contact', to: 'static_pages#contact', via: 'get'  # name_path is generated free
   match '/signup', to: 'users#new', via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
