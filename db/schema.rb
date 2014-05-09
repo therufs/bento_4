@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508190415) do
+ActiveRecord::Schema.define(version: 20140508205024) do
+
+  create_table "boxes", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "boxes", ["user_id", "date"], name: "index_boxes_on_user_id_and_date"
 
   create_table "users", force: true do |t|
     t.string   "name"

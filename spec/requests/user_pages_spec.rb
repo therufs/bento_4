@@ -4,6 +4,7 @@ describe "UserPages" do
 	subject { page } 
 
 	describe "index" do
+
 		let(:user) { FactoryGirl.create(:user) }
 		before do
 			sign_in user
@@ -58,10 +59,18 @@ describe "UserPages" do
 	describe "profile page" do
 
 		let(:user) { FactoryGirl.create(:user) }
+		let!(:b1) { FactoryGirl.create(:box, user: user, content: "Ebichiri", date: Date.new(2014)) }
+		let!(:b2) { FactoryGirl.create(:box, user: user, content: "Tamagoyaki", date: Date.new(2013)) }
 		before { visit user_path(user) }
 
 		it { should have_content(user.name) }
 		it { should have_title(user.name) }
+
+		describe "boxes" do
+			it { should have_content(b1.content) }
+			it { should have_content(b2.content) }
+			it { should have_content(user.boxes.count) }
+		end
 	end
 
 	describe "signup" do
@@ -74,8 +83,8 @@ describe "UserPages" do
 		describe "with invalid information" do
 			it "should not create a user" do
 				expect { click_button submit }.not_to change(User, :count)
-      end
-    end
+	      end
+   	end
 
     describe "with valid information" do
       before do
@@ -101,7 +110,9 @@ describe "UserPages" do
   end
 
 	describe "edit" do
+
 		let(:user) { FactoryGirl.create(:user) }
+
 		before do
 			sign_in user
 			visit edit_user_path(user) 
@@ -123,6 +134,7 @@ describe "UserPages" do
 		describe "with valid information" do
 			let(:new_name) { "New Name" }
 			let(:new_email) { "new@example.com" }
+
 			before do
 				fill_in "Name", with: new_name
 				fill_in "Email", with: new_email

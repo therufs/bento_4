@@ -14,6 +14,9 @@ describe User do
 	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:authenticate) }
 	it { should respond_to(:remember_token) }
+	it { should respond_to(:admin) }
+	it { should respond_to(:boxes) }
+
 
 	it { should be_valid }
 	it { should_not be_admin }
@@ -120,4 +123,27 @@ describe User do
 		its(:remember_token) { should_not be_blank }
 	end
 
+	describe "box associations" do
+		before { @user.save }
+		let!(:older_box) do
+			FactoryGirl.create(:box, user: @user, date: 2013, created_at: 1.hour.ago)
+		end
+		let!(:newer_box) do
+			FactoryGirl.create(:box, user: @user, date: 2014, created_at: 1.day.ago)
+		end
+
+		it "should have the right boxes in the right order" do
+			expect(@user.boxes.to_a).to eq [newer_box, older_box]
+		end
+
+		it "should destroy associated boxes" do  # what if they haven't registered any boxes? 
+			boxes = @user.boxes.to_a
+			@user.destroy
+			expect(boxes).not_to be_empty
+			boxes.each do |box|
+				expect(Box.where(id: box.id)).to be_empty
+			end
+		end
+
+	end
 end
