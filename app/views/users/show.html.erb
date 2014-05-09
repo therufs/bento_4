@@ -8,5 +8,17 @@
       </h1>
     </section>
   </aside>
+
+  <div class="span8">
+		<% if @user.boxes.any? %>
+			<h3>Bentos (<%= @user.boxes.count %>)</h3>
+			<ol class="boxes">
+				<%= render @boxes %>
+			</ol>
+			<%= will_paginate @boxes %>
+		<% else %> 
+			<div class="alert">Looks like you haven't logged any bentos yet!  <%= link_to "Make one?", '#' %></div>
+		<% end %>
+	</div>
 </div>
 <%= @user.name %>, <%= @user.email %>

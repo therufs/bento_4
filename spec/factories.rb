@@ -9,4 +9,10 @@ FactoryGirl.define do
 			admin true
 		end
 	end
+
+	factory :box do
+		content "Ebichiri"
+		date 2014
+		user
+	end
 end
