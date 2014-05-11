@@ -1,6 +1,7 @@
 Bento::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy] # don't need show or edit 
   resources :users   # TODO add some more resources!  FOR FUN & PROFIT
+  resources :boxes, only: [:create, :destroy]
   root 'static_pages#home'
   match '/help', to: 'static_pages#help', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'

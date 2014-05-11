@@ -8,7 +8,7 @@ describe Box do
 	subject { @box }
 
 	it { should respond_to(:content) }
-	it { should respond_to(:date) }
+#	it { should respond_to(:date) }
 	it { should respond_to(:user_id) }
 	it { should respond_to(:user) }
 	its(:user) { should eq user }
@@ -25,9 +25,9 @@ describe Box do
 		it { should_not be_valid }
 	end 
 
-	describe "without a date" do
-		before { @box.date = nil } 
-		it { should_not be_valid } # TODO figure out a way to make boxes without dates/future boxes 
-	end 
+#	describe "without a date" do
+#		before { @box.date = nil } 
+#		it { should_not be_valid } # TODO figure out a way to make boxes without dates/future boxes
+#	end 
 
 end
