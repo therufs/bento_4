@@ -126,10 +126,10 @@ describe User do
 	describe "box associations" do
 		before { @user.save }
 		let!(:older_box) do
-			FactoryGirl.create(:box, user: @user, date: 2013, created_at: 1.hour.ago)
+			FactoryGirl.create(:box, user: @user, created_at: 1.day.ago)
 		end
 		let!(:newer_box) do
-			FactoryGirl.create(:box, user: @user, date: 2014, created_at: 1.day.ago)
+			FactoryGirl.create(:box, user: @user, created_at: 1.hour.ago)
 		end
 
 		it "should have the right boxes in the right order" do

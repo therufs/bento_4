@@ -1,5 +1,12 @@
 require 'date'
 
+      # You can add whatever you want to the locale file, and it will get caught here.
+      # E.g., in your locale file, create a
+      #   name:
+      #     girls_name: ["Alice", "Cheryl", "Tatiana"]
+      # Then you can call Faker::Name.girls_name and it will act like #first_name
+
+
 namespace :db do
 	desc "Fill database with sample data"
 	task populate: :environment do
