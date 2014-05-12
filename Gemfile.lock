@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/therufs/faker
+  revision: 36f5e283b10b2f77c90f6b4a737ae00a4ceb811a
+  specs:
+    faker (1.3.0)
+      i18n (~> 0.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -56,8 +63,6 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
-    faker (1.1.2)
-      i18n (~> 0.5)
     ffi (1.9.3)
     hike (1.2.3)
     i18n (0.6.9)
@@ -165,7 +170,7 @@ DEPENDENCIES
   capybara (= 2.1.0)
   coffee-rails (= 4.0.1)
   factory_girl_rails (= 4.2.1)
-  faker (= 1.1.2)
+  faker!
   jbuilder (= 1.0.2)
   jquery-rails (= 3.0.4)
   pg (= 0.15.1)
