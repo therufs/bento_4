@@ -19,7 +19,7 @@ namespace :db do
 		end
 		users = User.all(limit: 6)
 		30.times do 
-			content = Faker::Lorem.sentence(5)
+			content = Faker::Bento.bento
 			date = Date.today
 			users.each { |user| user.boxes.create!(content: content) }
 		end
