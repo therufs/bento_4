@@ -59,8 +59,8 @@ describe "UserPages" do
 	describe "profile page" do
 
 		let(:user) { FactoryGirl.create(:user) }
-		let!(:b1) { FactoryGirl.create(:box, user: user, content: "Ebichiri", date: Date.new(2014)) }
-		let!(:b2) { FactoryGirl.create(:box, user: user, content: "Tamagoyaki", date: Date.new(2013)) }
+		let!(:b1) { FactoryGirl.create(:box, user: user, content: "Ebichiri", made_date: Date.new(2014)) }
+		let!(:b2) { FactoryGirl.create(:box, user: user, content: "Tamagoyaki", made_date: Date.new(2013)) }
 		before { visit user_path(user) }
 
 		it { should have_content(user.name) }

@@ -3,12 +3,12 @@ require 'spec_helper'
 describe Box do
 
 	let(:user) { FactoryGirl.create(:user) }
-	before { @box = user.boxes.build(content: "Chiriebi", date: Date.new(2014)) }
+	before { @box = user.boxes.build(content: "Chiriebi", made_date: Date.new(2014)) }
 
 	subject { @box }
 
 	it { should respond_to(:content) }
-#	it { should respond_to(:date) }
+	it { should respond_to(:made_date) }
 	it { should respond_to(:user_id) }
 	it { should respond_to(:user) }
 	its(:user) { should eq user }

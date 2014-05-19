@@ -12,7 +12,7 @@ FactoryGirl.define do
 
 	factory :box do
 		content "Ebichiri"
-		date 2014
+		made_date 2014
 		user
 	end
 end

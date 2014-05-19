@@ -25,7 +25,10 @@ describe "BoxPages" do
 		describe "with valid information" do
 
 			before { fill_in 'box_content', with: "Ebichiri" }
-			it "should create a micropost" do
+			before { select "2009", :from => 'box[made_date(1i)]' }
+#			before { fill_in 'box_date_2i', with: "January" }
+#			before { fill_in 'box_date_3i', with: "11" }
+			it "should create a box" do
 				expect { click_button "Log it!" }.to change(Box, :count).by(1)
 			end
 		end

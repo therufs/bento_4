@@ -18,10 +18,10 @@ namespace :db do
 			User.create!(name: name, email: email, password: password, password_confirmation: password)
 		end
 		users = User.all(limit: 6)
-		30.times do 
+		10.times do 
 			content = Faker::Bento.bento
-			date = Date.today
-			users.each { |user| user.boxes.create!(content: content) }
+			made_date = Date.today
+			users.each { |user| user.boxes.create!(content: content, made_date: made_date) }
 		end
 
 	end

@@ -17,6 +17,7 @@ class BoxesController < ApplicationController
 	private
 
 		def box_params
-			params.require(:box).permit(:content)
+			params.require(:box).permit(:content, :made_date) # ... oh. 
+
 		end
 end

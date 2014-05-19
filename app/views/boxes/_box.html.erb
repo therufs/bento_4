@@ -1,6 +1,6 @@
 <li>
 	<span class="content"><%= box.content %></span>
 	<span class="date">
-		Made <%= time_ago_in_words(box.created_at) %> ago.
+		Made: <%= box.made_date.to_s %>
 	</span>
 </li>
